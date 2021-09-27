@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--comment out-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="books">
+        <xsd:complexType>
+            <xsd:sequence> 
+                <xsd:element ref="book"/>
+            </xsd:sequence> 
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="book">
+        <xsd:complexType> 
+            <!--このsequenceでtitle,price,data,descriptionの順に出現するよう指定している-->
+            <xsd:sequence> 
+                <xsd:element name="title" type="xsd:string"/> 
+                <xsd:element name="price" type="xsd:decimal"/> 
+                    <xsd:element ref="data"/> 
+                    <xsd:element ref="description"/> 
+                </xsd:sequence> 
+            </xsd:complexType>
+    </xsd:element> 
+    <!--さらに要素追加-->
+    <xsd:element name="data">
+        <xsd:complexType>
+            <!--choiceはゆらぎの表現。要素のいずれかが出現することを示す。以下はad(西暦),gengo(元号)いずれか1つが出現するようとき決めている-->
+            <xsd:choice>
+                <xsd:element name="ad" type="xsd:string"/>
+                <xsd:element name="gengo" type="xsd:string"/>
+            </xsd:choice>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="description">
+        <!--mixedは混合内容を意味する。descriptionはテキストノードと子要素両方を持つ.
+        また、emはchoice親要素を持つので、テキストのどの部分に挟まっていてもいい-->
+        <xsd:complexType mixed="true">
+            <xsd:choice>
+                <!--出現回数をmaxOccurs,minOccursで決める。minOccurs="0"は任意を意味する-->
+                <xsd:element name="em" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:choice>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>    

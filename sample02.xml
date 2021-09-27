@@ -1,0 +1,12 @@
+<?xml version ="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="sample02.xsl"?>
+<FavoriteList xmlns:A="http://www.sample02.com/book" xmlns:B="http://www.sample02.com/game">
+    <A:book>
+        <A:title>博士の愛した数式</A:title>
+        <A:price>4000</A:price>
+    </A:book>
+    <B:game>
+        <B:title>DARK SOULS 2</B:title>
+        <B:price>1000</B:price>
+    </B:game>
+</FavoriteList>

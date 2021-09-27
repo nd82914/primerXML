@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--comment out-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="books">
+        <xsd:complexType>
+            <xsd:sequence> 
+                <xsd:element ref="book"/>
+            </xsd:sequence> 
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="book">
+        <xsd:complexType> 
+            <xsd:sequence> 
+                <xsd:element name="title" type="xsd:string"/> 
+                <xsd:element name="price" type="xsd:decimal"/> 
+            </xsd:sequence> 
+            <!--book要素は、id属性,lang属性を持つ。-->
+            <!--use:require;必ず指定,optional;省略可,prohibited;属性を禁止する-->
+            <xsd:attribute name="id" type="xsd:string" use="required"/>
+            <xsd:attribute name="lang" type="xsd:string" default="JP"/>
+        </xsd:complexType>
+    </xsd:element> 
+</xsd:schema>    
